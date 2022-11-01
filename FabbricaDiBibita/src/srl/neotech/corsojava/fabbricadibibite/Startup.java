@@ -32,7 +32,7 @@ public class Startup {
 		
 		c.getCisterne().add(cisternaAdd);
 		
-		System.out.println("Cantina n: " + i);
+		System.out.println("Cisterna n: " + i);
 		System.out.println("\n");
 		
 
