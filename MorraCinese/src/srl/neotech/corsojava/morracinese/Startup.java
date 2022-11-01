@@ -11,8 +11,10 @@ public class Startup {
 	
 		Scanner ins = new Scanner(System.in);
 		System.out.println("Benvenuto nel gioco della morra cinese");
+		
 		System.out.println("G1: Carta, Forbice o Sasso?");
 		g1 = ins.next();
+		
 		System.out.println("G2:Carta,Forbice o Sasso?");
 		g2 = ins.next();
 
