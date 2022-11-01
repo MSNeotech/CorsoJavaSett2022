@@ -21,13 +21,13 @@ public class Startup {
 		else if(num==2) cisternaAdd.setTipo("Rame");
 		else if(num==3) cisternaAdd.setTipo("Acciaio");
 		
-		int numQt = r.nextInt(1000-1)+1;
+		int numQt = r.nextInt(1000-0)+0;
 		cisternaAdd.setQuantita(numQt);
 		
-		int numEv = r.nextInt(100-1)+1;
+		int numEv = r.nextInt(100-0)+0;
 		cisternaAdd.setEvapPerDay(numEv);
 		
-		int numGas = r.nextInt(100-1)+1;
+		int numGas = r.nextInt(100-0)+0;
 		cisternaAdd.setLivelloGas(numGas);
 		
 		c.getCisterne().add(cisternaAdd);
