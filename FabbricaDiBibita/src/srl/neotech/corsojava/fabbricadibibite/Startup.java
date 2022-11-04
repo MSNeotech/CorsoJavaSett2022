@@ -49,6 +49,7 @@ public class Startup {
 			
 			Integer giorni=0;
 			while(qtBibita>0) {
+				qtBibita=0;
 				giorni++;
 				for(int i=1; i<=100;i++) {
 					if(cist.getLivelloGas()>c.getThreshold()){
