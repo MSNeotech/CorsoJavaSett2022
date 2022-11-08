@@ -12,9 +12,9 @@ public class Startup {
 		
 		Random r = new Random();
 		
-		int votoScritto = r.nextInt(-8,8);
+		Integer votoScritto = r.nextInt(-8,8);
 		voti.add(0, votoScritto);
-		int votoOrale= r.nextInt(0,24);
+		Integer votoOrale= r.nextInt(0,24);
 		voti.add(1,votoOrale);
 		
 		Integer ris = voti.get(0) + voti.get(1);
