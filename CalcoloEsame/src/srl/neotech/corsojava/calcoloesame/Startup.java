@@ -23,11 +23,11 @@ public class Startup {
 		System.out.println("Voto orale: " +voti.get(1)+"\n");
 		System.out.println("Risultato:" +ris +"\n");
 		
-		if(voti.get(0)<=0 && ris>18) System.out.println("Bocciato");
-		else if(voti.get(0)<=0 && voti.get(1)<18) System.out.println("Bocciato");
-		else if(voti.get(0)>0 && ris<18) System.out.println("Bocciato");
-		else if(ris==31 || ris==32) System.out.println("Congratulazione: 30 e lode");
-		else System.out.println("Promosso");
+		if(voti.get(0)<=0) System.out.println("Bocciato");
+		else if(voti.get(0)>=18 && voti.get(1)>=18) System.out.println("Promosso");
+		else if((voti.get(0)>0 && voti.get(0)<18) && ris>24) System.out.println("Promosso");
+		else if(voti.get(0)==30 && voti.get(1)==30) System.out.println("Congratulazione: 30 e lode");
+		else System.out.println("Rimandato");
 
 	}
 
