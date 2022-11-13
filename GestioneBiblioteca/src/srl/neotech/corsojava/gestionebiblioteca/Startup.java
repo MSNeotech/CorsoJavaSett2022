@@ -69,7 +69,7 @@ Integer removeIndex = rnd.nextInt(1,90);
 libri.remove(removeIndex);
 associati.remove(removeIndex);
 
-System.out.println("\n"+"Associati: " +associati+"\n");
+System.out.println("\n"+"Associato rimosso: " +associati+"\n");
 System.out.println("Libro rimosso: " +libri+"\n");
 	
 
