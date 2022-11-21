@@ -14,83 +14,150 @@ public class Startup {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	Aeroporto a = new Aeroporto();
+	Aeroporto aereoporto = new Aeroporto();
 	
 	Random rnd = new Random();
 	
 	Faker f = new Faker();
 	
-	a.setRaggioDiAzione(100);
+	aereoporto.setRaggioDiAzione(100);
 	
-	for(int i=1; i<=300;i++) {
+	for(int i=1; i<=100;i++) {
 		
-		Aereo a1 = new Aereo();
-		
-		Integer randomVelocità = rnd.nextInt(0,10);
-		Integer randomDistanzaAereoporto =rnd.nextInt(1,500);
-		Integer randomOrario = rnd.nextInt(1,200);
-		
-		String compagnia = f.company().name();
-		Integer IdUnivoco = f.number().randomDigit();
-		
-		if(i<100) {
+		Aereo aereoInPartenza = new Aereo();
+		ModelloAereo modello = new ModelloAereo();
+
+		aereoInPartenza.setCompagniaAerea(f.company().name());
+		aereoInPartenza.setIdUnivoco(i);
+		aereoInPartenza.setDistanzaDallAeroporto(0);
+		aereoInPartenza.setVelocità(0);
+		aereoInPartenza.setOrario(0);
 			
-			a1.setCompagniaAerea(compagnia);
-			a1.setIdUnivoco(IdUnivoco);
-			a1.setDistanzaDallAeroporto(randomDistanzaAereoporto);
-			a1.setVelocità(randomVelocità);
-			a1.setOrario(0);
-			
-		    a1.setStato(a1.getStato().IN_PARTENZA);
-		    
-		    aereiInPartenza.add(a1);
-		    
-		} else if(i>100){
-			
-			a1.setStato(a1.getStato().IN_AVVICINAMENTO);
-			
-			a1.setIdUnivoco(IdUnivoco);
-			a1.setOrario(randomOrario);
-			a1.setCompagniaAerea(compagnia);
-			a1.setVelocità(randomVelocità);
-			a1.setDistanzaDallAeroporto(randomDistanzaAereoporto);
-			
-			aereiInAvvicinamento.add(a1);
-		} 
+		aereoInPartenza.setStato(aereoInPartenza.getStato().IN_PARTENZA);
 		
+		modello.setCostruttore(f.company().name());
+		modello.setCapienzaNumPasseggeri(rnd.nextInt(1,200));
+		modello.setCodiceModello(f.code().isbn13());
+		aereoInPartenza.setModello(modello);
 		
-	} for(int k=1; k<=1000;k++) {
+		for(int k=0; k<modello.getCapienzaNumPasseggeri();k++) {
+			
+			Passeggero p = null;
+			
+			Integer sesso = rnd.nextInt(0,1);
+			Integer tipo = rnd.nextInt(1,3);
+			
+			if(tipo==1) p = new Business();
+			else if(tipo==2) p = new Turista();
+			else p = new Excelsior();
+			
+			if(sesso==0) p.setMF('M');
+			else p.setMF('F');
+			
+			p.setEta(rnd.nextInt(3,90));
+			p.setIdUnivoco(k);
+			p.setHasFiore(false);
+			p.setHaBagagli(true);
+			
+			aereoInPartenza.getPasseggeri().add(p);
+			
+		}
+		
+		aereiInPartenza.add(aereoInPartenza); 
+	}
+			    
+	for(int j=1;j<=200;j++) {
+		
+		Aereo aereoInAvvicinamento = new Aereo();
+		ModelloAereo modello = new ModelloAereo();
+			
+		aereoInAvvicinamento.setStato(aereoInAvvicinamento.getStato().IN_AVVICINAMENTO);
+			
+		aereoInAvvicinamento.setIdUnivoco(j);
+		aereoInAvvicinamento.setOrario(rnd.nextInt(1,200));
+		aereoInAvvicinamento.setCompagniaAerea(f.company().name());
+		aereoInAvvicinamento.setVelocità(rnd.nextInt(0,10));
+		aereoInAvvicinamento.setDistanzaDallAeroporto(rnd.nextInt(1,500));
+		
+
+		modello.setCostruttore(f.company().name());
+		modello.setCapienzaNumPasseggeri(rnd.nextInt(1,200));
+		modello.setCodiceModello(f.code().isbn13());
+		aereoInAvvicinamento.setModello(modello);
+
+		for(int l=0; l<modello.getCapienzaNumPasseggeri();l++) {
+			
+			Passeggero p = null;
+			
+			Integer sesso = rnd.nextInt(0,1);
+			Integer tipo = rnd.nextInt(1,3);
+			
+			if(tipo==1) p = new Business();
+			else if(tipo==2) p = new Turista();
+			else p = new Excelsior();
+			
+			if(sesso==0) p.setMF('M');
+			else p.setMF('F');
+			
+			p.setEta(rnd.nextInt(3,90));
+			p.setIdUnivoco(l);
+			p.setHasFiore(false);
+			p.setHaBagagli(true);
+			
+			aereoInAvvicinamento.getPasseggeri().add(p);
+			
+		}
+		
+		aereiInAvvicinamento.add(aereoInAvvicinamento);
+		}
+		
+	for(int m=1; m<=1000;m++) {
 		
 		Passeggero p = new Passeggero();
 		
+		Integer sesso = rnd.nextInt(0,1);
 		Integer tipo = rnd.nextInt(1,3);
-		
-		String nome = f.funnyName().name();
-		Integer IdUnivoco = f.number().randomDigit();
-		Integer eta = f.number().numberBetween(3, 90);
-		
-		p.setEta(eta);
-		p.setIdUnivoco(IdUnivoco);
 		
 		if(tipo==1) p = new Business();
 		else if(tipo==2) p = new Turista();
 		else p = new Excelsior();
 		
-		p.setIdUnivoco(k);
+		if(sesso==0) p.setMF('M');
+		else p.setMF('F');
 		
-		a.getPasseggeri().add(p);
+		p.setEta(rnd.nextInt(3,90));
+		p.setIdUnivoco(m);
+		p.setHasFiore(false);
+		p.setHaBagagli(true);
 		
+		aereoporto.getPasseggeri().add(p);
 	}
+	
 	System.out.println("\n"+"In Partenza" + "\n");
 	
 	for(Aereo aereoInPartenza: aereiInPartenza) {
 		System.out.println(aereoInPartenza);
+
 	}	
+	
 	System.out.println("\n"+"In Arrivo"+ "\n");
 	
 	for(Aereo aereoInArrivo: aereiInAvvicinamento) {
-		System.out.println(aereoInArrivo);
+		System.out.println(aereoInArrivo);	
+		
 	}
+	
+	for(Aereo aereiInPartenza: aereiInPartenza) {
+		//aereoporto.checkin(aereiInPartenza, null);
+		aereoporto.decollo(aereiInPartenza);
+	}
+	
+	for(Aereo aereoInArrivo: aereiInAvvicinamento) {
+		//aereoporto.checkout(null);
+		//aereoporto.atterraggio(aereoInArrivo);
+	}
+	
+	
 
 
 }

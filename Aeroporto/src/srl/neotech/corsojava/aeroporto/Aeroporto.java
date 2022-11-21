@@ -31,7 +31,7 @@ public class Aeroporto {
 	
 	
 	public Aereo decollo(Aereo a) {
-		while(a.getDistanzaDallAeroporto()<a.getRaggioDiAzione()) {
+		while(a.getDistanzaDallAeroporto()<this.raggioDiAzione) {
 		Integer distanzaAttuale= a.getDistanzaDallAeroporto()+ a.getVelocità();
 		a.setDistanzaDallAeroporto(distanzaAttuale);
 		 System.out.println("Blink");	
@@ -53,30 +53,32 @@ public class Aeroporto {
 		System.out.println("Aereo " +a.getIdUnivoco() + " è atterrato");
 		a.setStato(a.getStato().ATTERRATO);
 		
+		for(Passeggero p: a.getPasseggeri())
+			this.checkout(p);
+		
 		return a;
 	}
 	
-	public Aereo checkout(Aereo a) {
-		System.out.println("Checkout aereo: " +a.getIdUnivoco());
+	public Passeggero checkout(Passeggero p) {
+	
+		if(p instanceof Excelsior) {
+			((Excelsior) p).setHaChampagne(true);
+				System.out.println("Un champagne");
+			} else if(p instanceof Business) {
+				((Business) p).setHaGiornale(true);
+				System.out.println("Un giornale");
+			} else if(p.getMF()=='F') {
+				System.out.println("Un fiore");
+			}
+		System.out.println("Checkout aereo: " +p.getIdUnivoco());
 		
-		for(int i=1; i<a.getModello().getCapienzaNumPasseggeri();i++) {
-			
-			Passeggero p = new Passeggero();
-			
-			p.getEta();
-			p.getMF();
-			
-			System.out.println("Passeggero" + p.getIdUnivoco()+ " è sbarcato");
-		}
-		return a;
+		return p;
 	}
 	
 	public Aereo checkin(Aereo a,Passeggero p) {
 		
 		System.out.println("Checkin: " +p);
-		
-		for(int i=1; i<a.getModello().getCapienzaNumPasseggeri();i++) {
-			
+		/*
 			if(p instanceof Excelsior) {
 				((Excelsior) p).setHaChampagne(true);
 					System.out.println("Un champagne");
@@ -87,15 +89,13 @@ public class Aeroporto {
 					System.out.println("Un fiore");
 				}
 		
-			System.out.println("Passeggero " + p.getIdUnivoco() + " è imbarcato");
 			
 		 System.out.println("Passeggeri totali: " +p.getIdUnivoco());
 		 a.getPasseggeri().add(p);
 			
 	     if(a.getPasseggeri().size()<a.getModello().getModello().getCapienzaNumPasseggeri()) break;
 	     
-		
-		}
+		}*/
 
 		return a;
 	}
