@@ -32,12 +32,16 @@ public class Aeroporto {
 	
 	public Aereo decollo(Aereo a) {
 		while(a.getDistanzaDallAeroporto()<this.raggioDiAzione) {
+		a.setStato(Stato.DECOLLATO);
 		Integer distanzaAttuale= a.getDistanzaDallAeroporto()+ a.getVelocità();
 		a.setDistanzaDallAeroporto(distanzaAttuale);
-		 System.out.println("Blink");	
+		 System.out.println("Blink! " +a);	
 		}
-		System.out.println("Aereo " +a.getIdUnivoco() + " è fuori dallo spazio aereo");
 		a.setStato(a.getStato().FUORI_SPAZIO_AEREO);
+		System.out.println("\n" +"Aereo fuori spazio aereo: " +a+"\n");
+		for(Passeggero p: a.getPasseggeri()) {
+			this.checkin(p);
+		}
 		
 		return a;
 	}
@@ -45,22 +49,23 @@ public class Aeroporto {
 	public Aereo atterraggio(Aereo a) {
 		
 		while(a.getDistanzaDallAeroporto()>0) {
-	     System.out.println("Aereo si sta avvicinando" + a.getIdUnivoco());
 	     Integer distanzaAttuale= a.getDistanzaDallAeroporto()- a.getVelocità();
 	     a.setDistanzaDallAeroporto(distanzaAttuale);
-	     System.out.println("Blink");	
-		}
-		System.out.println("Aereo " +a.getIdUnivoco() + " è atterrato");
+	     System.out.println("Blink! "  +a);	
+		}		
 		a.setStato(a.getStato().ATTERRATO);
+		System.out.println("\n" +"Aereo atterrato: " +a+ "\n");
 		
-		for(Passeggero p: a.getPasseggeri())
+		for(Passeggero p: a.getPasseggeri()) {
 			this.checkout(p);
+		}
 		
 		return a;
 	}
 	
 	public Passeggero checkout(Passeggero p) {
 	
+		System.out.println("Checkout: " +p );
 		if(p instanceof Excelsior) {
 			((Excelsior) p).setHaChampagne(true);
 				System.out.println("Un champagne");
@@ -70,15 +75,14 @@ public class Aeroporto {
 			} else if(p.getMF()=='F') {
 				System.out.println("Un fiore");
 			}
-		System.out.println("Checkout aereo: " +p.getIdUnivoco());
 		
 		return p;
 	}
 	
-	public Aereo checkin(Aereo a,Passeggero p) {
+	public Passeggero checkin(Passeggero p) {
 		
 		System.out.println("Checkin: " +p);
-		/*
+		
 			if(p instanceof Excelsior) {
 				((Excelsior) p).setHaChampagne(true);
 					System.out.println("Un champagne");
@@ -88,16 +92,8 @@ public class Aeroporto {
 				} else if(p.getMF()=='F') {
 					System.out.println("Un fiore");
 				}
-		
-			
-		 System.out.println("Passeggeri totali: " +p.getIdUnivoco());
-		 a.getPasseggeri().add(p);
-			
-	     if(a.getPasseggeri().size()<a.getModello().getModello().getCapienzaNumPasseggeri()) break;
-	     
-		}*/
 
-		return a;
+		return p;
 	}
 	
 }
