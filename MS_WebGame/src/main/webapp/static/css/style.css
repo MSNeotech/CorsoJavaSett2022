@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffree4kwallpapers.com%2Fuploads%2Fwallpaper%2Fminimalist-desktop-*-wallpaper-1920x1080-wallpaper.jpg&f=1&nofb=1&ipt=b6a0744a8396f3c7c51f599020344d65345b43e53d3f9eddab8b3dff4c9086c0&ipo=images");
+}
+
+
+input{
+	
+	margin-top: 15px;
+	border-style: 2px, solid black;
+	
+}
+
+#inputScelta{
+	background-color:#082f4e;
+	color: #ffffff;
+}
+
+button{
+	background-color:#082f4e;
+	color: #ffffff;
+	margin-left:3px;
+}
+
+#box1,#box2,#box3,#box4,#box5,#box6{
+	background-color:#2c3444;
+	color:#ffffff;
+}

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body{
+ background-image: url("https://wallpapercave.com/wp/wp6470882.png");
+}
+
+table, th, td {
+  border: 2px solid white;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:20px;
+}
+
+
+th, td {
+  padding: 40px;
+}
+
+button {
+padding:10px 25px;
+margin-top:8px;
+background-color:transparent;
+}
+
+img{
+	width:25px;
+	height:25px;
+}

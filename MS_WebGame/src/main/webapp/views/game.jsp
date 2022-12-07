@@ -21,6 +21,8 @@ th, td {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="static/js/webGame.js"></script>
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
 <div class="container">
@@ -28,12 +30,12 @@ th, td {
 <div class="row">
 <div class="col-md-3"></div>
 <div class="col-md-6">
-<input type="text" id="box1" value="P" size=2>
-<input type="text" id="box2" value="O" size=2>
-<input type="text" id="box3" value="T" size=2>
-<input type="text" id="box4" value="T" size=2>
-<input type="text" id="box5" value="E" size=2>
-<input type="text" id="box6" value="R" size=2>
+<input type="text" id="box1"  size=2>
+<input type="text" id="box2"  size=2>
+<input type="text" id="box3"  size=2>
+<input type="text" id="box4"  size=2>
+<input type="text" id="box5"  size=2>
+<input type="text" id="box6"  size=2>
 </div>
 <div class="col-md-3"></div>
 </div>
@@ -41,7 +43,7 @@ th, td {
 <div class="row">
 <div class="col-md-3">
 <input type="text" size=2 id="inputScelta">
-<button type="button" id="bottoneScelta">Scelta</button> 
+<button type="button" id="bottoneScelta"><i class="fa-solid fa-check"></i></button>
 </div>
 <div class="col-md-9"></div>
 </div>
@@ -72,8 +74,6 @@ th, td {
 
 <div class="row">
 <div class="col-md-6">
-<h3 id="win">Hai vinto!!</h3>
-<h3 id="loser">Hai perso!!</h3>
 </div>
 <div class="col-md-6"></div>
 </div>
