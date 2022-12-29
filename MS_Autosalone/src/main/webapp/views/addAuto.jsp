@@ -69,7 +69,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="insertData" class="nav-link">
+            <a href="addAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Aggiungi Auto</p>
             </a>
@@ -118,7 +118,7 @@
           <div class="col-md-4"></div>
           <div class="col-md-4">
           
-          <form id="auto" action="addAuto" method="Post">
+          <form id="auto" action="add" method="Post" enctype="application/x-www-form-urlencoded">
           
           <div class= "form-group">
           <label>ID</label>
@@ -147,7 +147,7 @@
 		  
 		   <div class= "form-group">
           <label>ANNO </label>
-          <input id="anno" class= "form-control" name="anno" type="text" value="">
+          <input id="annoCostruzione" class= "form-control" name="annoCostruzione" type="text" value="">
 		  </div>
           
            <div class= "form-group">
@@ -155,7 +155,7 @@
           <input id="costo" class= "form-control" name="costo" type="text" value="">
 		  </div>
 		  
-		  <button class="btn btn-primary" id="sottomettiForm">AGGIUNGI</button>
+		  <button class="btn btn-primary" type="submit" id="sottomettiForm">AGGIUNGI</button>
           
           </form>
           </div>

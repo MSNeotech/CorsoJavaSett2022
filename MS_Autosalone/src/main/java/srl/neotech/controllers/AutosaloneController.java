@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -26,17 +27,15 @@ public class AutosaloneController {
 	
 	@GetMapping("/addAuto")
 	public String aggiungiAuto(ModelMap modelMap) {
-		
-		
-		
+		modelMap.addAttribute("automobili", autoSalone.getAutomobili());
 		return "addAuto";
 		
 	}
 	
 	@PostMapping("/add")
-	public String Add(@RequestBody Automobile auto) {
+	public String Add(@ModelAttribute  Automobile auto) {
 		
-		
-		return "addAuto";
+	    autoSalone.getAutomobili().add(auto);
+		return "redirect:/listAuto";
 	}
 }
