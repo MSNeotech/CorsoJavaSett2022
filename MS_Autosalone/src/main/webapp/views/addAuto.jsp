@@ -118,7 +118,7 @@
           <div class="col-md-4"></div>
           <div class="col-md-4">
           
-          <form id="auto" action="add" method="Post" enctype="application/x-www-form-urlencoded">
+          <form id="auto" action="add" method="Post">
           
           <div class= "form-group">
           <label>ID</label>

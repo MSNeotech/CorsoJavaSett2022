@@ -57,7 +57,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="insertData" class="nav-link">
+            <a href="home" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Home</p>
             </a>
