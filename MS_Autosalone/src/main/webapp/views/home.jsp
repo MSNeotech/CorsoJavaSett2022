@@ -74,6 +74,12 @@
               <p>Aggiungi Auto</p>
             </a>
           </li>
+           <li class="nav-item">
+            <a href="removeAuto" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Rimuovi Auto</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="insertData" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -81,7 +87,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="insertData" class="nav-link">
+            <a href="detailsAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Dettaglio Auto</p>
             </a>

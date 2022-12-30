@@ -30,9 +30,6 @@ public class Autosalone {
 		cerchiLega.setTipologia(ETipologiaAccessorio.CERCHI);
 		cerchiLega.setCosto(new BigDecimal("3700.34"));
 		
-		primaAuto.getAccessori().add(cerchiLega);
-		automobili.add(primaAuto);
-		
 		Automobile secondaAuto = new Automobile();
 		   secondaAuto.setId("2");
 	       secondaAuto.setTarga("GL230GH");

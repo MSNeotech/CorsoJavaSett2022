@@ -106,7 +106,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Lista Automobili</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -119,39 +118,97 @@
 
     <!-- Main content -->
     <section class="content">
-       <div class = "container">
+    <div class="clearfix">
        <div class="row">
-       
-       <div class="col"></div>
-       
-          <div class="col" >
-              <table class="table table-bordered table-hover dataTable dtr-inline">
+          <div class="col-md-2" >
+          <div class= "form-group">
+          <label>LISTA AUTO</label>
+          <select id="costruttore" name="costruttore" class="form-control select2bs4 select2-hidden-accessible">
+	      <option value=""></option>
+	      <option value=""></option>
+	      <option value=""></option>
+	      <option value=""></option>
+		  </select>
+          </div>
+          </div>
+          <div class="col-md-5"></div>
+          <div class="col-md-5"></div>
+       </div>
+    </div>
+        <h3>Dettagli Auto</h3>
+        
+    <div class="container">
+    <div class="row">
+
+    <div class="col-md-4">
+    <div class= "form-group">
+          <label>TARGA</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+           <div class= "form-group">
+          <label>ALIMENTAZIONE</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+           <div class= "form-group">
+          <label>COSTO</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+    </div>
+    
+     <div class="col-md-4">
+     <div class= "form-group">
+          <label>COSTRUTTORE</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+          <div class= "form-group">
+          <label>ANNO</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+     </div>
+      <div class="col-md-4">
+       <div class= "form-group">
+          <label>MODELLO</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+           <div class= "form-group">
+          <label>COLORE</label>
+          <input id="" class= "form-control" name="" type="text" value="">
+          </div>
+      </div>
+    </div>
+    </div>
+    
+  <h3>ACCESSORI</h3>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4">
+    <table class="table table-bordered table-hover dataTable dtr-inline">
               <thead>
               <td>Id</td>
-              <td>Targa</td>
-              <td>Costruttore</td>
-              <td>Modello</td>
-              <td>Anno</td>
+              <td>Classe</td>
+              <td>Tipologia</td>
+              <td>Descrizione</td>
               <td>Costo</td>
               </thead>
-             <c:forEach var="auto" items="${listaAuto}" >
+              <tbody>
+               <c:forEach var="accessori" items="${accessori}" >
                         <tr>
-                        <td>${auto.id}</td>
-                        <td>${auto.targa}</td>
-                        <td>${auto.costruttore}</td>
-                        <td>${auto.modello}</td>
-                        <td>${auto.annoCostruzione}</td>
-                        <td>${auto.costo}</td>
+                        <td>${accessori.id}</td>
+                        <td>${accessori.classe}</td>
+                        <td>${accessori.tipologia}</td>
+                        <td>${accessori.descrizione}</td>
+                        <td>${accessori.costo}</td>
                         <td><input class="btn btn-primary" type="button" value="Dettagli"></button></td>
                         </tr>
               </c:forEach>
+              </tbody>
               </table>
-          </div>
-          <div class="col"></div>
-    
-    </div>
-    </div>
-
+              </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+  
+  </div>
+  </div>
 
     </section>
     <!-- /.content -->
