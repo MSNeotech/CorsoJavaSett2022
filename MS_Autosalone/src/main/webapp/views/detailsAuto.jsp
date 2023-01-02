@@ -122,13 +122,8 @@
        <div class="row">
           <div class="col-md-2" >
           <div class= "form-group">
-          <label>LISTA AUTO</label>
-          <select id="costruttore" name="costruttore" class="form-control select2bs4 select2-hidden-accessible">
-	      <option value=""></option>
-	      <option value=""></option>
-	      <option value=""></option>
-	      <option value=""></option>
-		  </select>
+          <label>ID</label>
+          <input id="id" class= "form-control" name="id" type="text" value="${auto.id}">
           </div>
           </div>
           <div class="col-md-5"></div>
@@ -142,37 +137,38 @@
 
     <div class="col-md-4">
     <div class= "form-group">
+  
           <label>TARGA</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="targa" class= "form-control" name="targa" type="text" value="${auto.targa}">
           </div>
            <div class= "form-group">
           <label>ALIMENTAZIONE</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="alimentazione" class= "form-control" name="alimentazione" type="text" value="${auto.alimentazione}">
           </div>
            <div class= "form-group">
           <label>COSTO</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="costo" class= "form-control" name="costo" type="text" value="${auto.costo}">
           </div>
     </div>
     
      <div class="col-md-4">
      <div class= "form-group">
           <label>COSTRUTTORE</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="costruttore" class= "form-control" name="costruttore" type="text" value="${auto.costruttore}">
           </div>
           <div class= "form-group">
           <label>ANNO</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="annoCostruzione" class= "form-control" name="anno" type="text" value="${auto.annoCostruzione}">
           </div>
      </div>
       <div class="col-md-4">
        <div class= "form-group">
           <label>MODELLO</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="modello" class= "form-control" name="modello" type="text" value="${auto.modello}">
           </div>
            <div class= "form-group">
           <label>COLORE</label>
-          <input id="" class= "form-control" name="" type="text" value="">
+          <input id="colore" class= "form-control" name="colore" type="text" value="${auto.colore}">
           </div>
       </div>
     </div>
@@ -191,14 +187,13 @@
               <td>Costo</td>
               </thead>
               <tbody>
-               <c:forEach var="accessori" items="${accessori}" >
+               <c:forEach var="accessori" items="${listaccessori}" >
                         <tr>
                         <td>${accessori.id}</td>
                         <td>${accessori.classe}</td>
                         <td>${accessori.tipologia}</td>
                         <td>${accessori.descrizione}</td>
                         <td>${accessori.costo}</td>
-                        <td><input class="btn btn-primary" type="button" value="Dettagli"></button></td>
                         </tr>
               </c:forEach>
               </tbody>

@@ -142,7 +142,7 @@
                         <td>${auto.modello}</td>
                         <td>${auto.annoCostruzione}</td>
                         <td>${auto.costo}</td>
-                        <td><input class="btn btn-primary" type="button" value="Dettagli"></button></td>
+                        <td><a href="detailsAuto?id=${auto.id}"<input class="btn btn-primary" type="button" value="Dettagli"></button></a></td>
                         </tr>
               </c:forEach>
               </table>

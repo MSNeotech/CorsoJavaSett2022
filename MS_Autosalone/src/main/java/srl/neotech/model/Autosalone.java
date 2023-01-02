@@ -3,6 +3,7 @@ package srl.neotech.model;
 import java.awt.GraphicsDevice.WindowTranslucency;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -25,12 +26,13 @@ public class Autosalone {
 		primaAuto.setModello("Veyron");
 		primaAuto.setCosto(new BigDecimal("450670.50"));
 		
-		Accessorio cerchiLega=new Accessorio();
+	    Accessorio cerchiLega=new Accessorio();
+	    cerchiLega.setId("1");
 		cerchiLega.setClasse(EClasseAccessorio.ESTERNI);
 		cerchiLega.setTipologia(ETipologiaAccessorio.CERCHI);
 		cerchiLega.setCosto(new BigDecimal("3700.34"));
 		
-		Automobile secondaAuto = new Automobile();
+		   Automobile secondaAuto = new Automobile();
 		   secondaAuto.setId("2");
 	       secondaAuto.setTarga("GL230GH");
 	       secondaAuto.setColore(EColore.NERO);
@@ -80,7 +82,17 @@ public class Autosalone {
 		this.automobili = automobili;
 	}
 	
-	
-	
+	public Automobile getAutomobileById(String id) {
+		
+		   for(Automobile auto: automobili) {
+		
+			   if(auto.getId().equals(id)) {
+				   return auto;
+			   }
+		   }
+		   return null;
+
+}
+
 	
 }

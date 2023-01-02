@@ -2,6 +2,9 @@ package srl.neotech.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
 
 public class Automobile {
 
@@ -69,8 +72,6 @@ public class Automobile {
 	public void setAccessori(ArrayList<Accessorio> accessori) {
 		this.accessori = accessori;
 	}
-	
-	
 	
 	
 }
