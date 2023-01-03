@@ -9,12 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Template</title>
 
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="static/js/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="static/css/adminlte.min.css">
+  
+  <script src="static/js/remove.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -123,36 +127,43 @@
        <div class="row">
        <div class="col-md-4"></div>
           <div class="col-md-4 text-center" >
-              <table width="100%" class="table table-bordered table-hover dataTable dtr-inline">
-              <thead>
-              <td>Check</td>
-              <td>Id</td>
-              <td>Targa</td>
-              <td>Costruttore</td>
-              <td>Modello</td>
-              <td>Anno</td>
-              <td>Costo</td>
-              </thead>
-             <c:forEach var="auto" items="${listaAuto}" >
-                        <tr>
-                        <td><div class="btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-primary active">
-                        <input type="checkbox" checked autocomplete="off"></label>
-                        </div></td>
-                        <td>${auto.id}</td>
-                        <td>${auto.targa}</td>
-                        <td>${auto.costruttore}</td>
-                        <td>${auto.modello}</td>
-                        <td>${auto.annoCostruzione}</td>
-                        <td>${auto.costo}</td>
-                        </tr>
-              </c:forEach>
-                
-              
-              </table>
-              <button type="submit" class="btn btn-success">Rimuovi</button>
-            
+          
+  <form action="remove" method="post" id="form-remove">
+  <table width="100%" class="table table-bordered table-hover dataTable dtr-inline">
+    <thead>
+      <td>Check</td>
+      <td>Id</td>
+      <td>Targa</td>
+      <td>Costruttore</td>
+      <td>Modello</td>
+      <td>Anno</td>
+      <td>Costo</td>
+    </thead>
+    <c:forEach var="auto" items="${listaAuto}" >
+      <tr>
+        <td>
+          <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <input type="checkbox" name="idRemove" value="${auto.id}" checked autocomplete="off">
+            </label>
           </div>
+        </td>
+        <td>${auto.id}</td>
+        <td>${auto.targa}</td>
+        <td>${auto.costruttore}</td>
+        <td>${auto.modello}</td>
+        <td>${auto.annoCostruzione}</td>
+        <td>${auto.costo}</td>
+      </tr>
+      <script>
+      console.log("Dentro il ciclo: " + auto.id);
+      </script>
+    </c:forEach>
+  </table>
+  <button type="submit" class="btn btn-success">Rimuovi</button>
+      </form>
+          </div>
+          
        <div class="col-md-4"></div>
        </div>
     

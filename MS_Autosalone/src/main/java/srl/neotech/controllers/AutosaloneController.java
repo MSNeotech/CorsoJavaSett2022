@@ -52,6 +52,16 @@ public class AutosaloneController {
 		return "removeAuto";
 	}
 	
+	@PostMapping("/remove")
+	public String removeAuto(@RequestParam("idRemove") String idRemove, ModelMap modelMap) {
+		
+	    autoSalone.removeAutoById(idRemove);
+	    System.out.println("ID Remove:" +idRemove);
+	    modelMap.addAttribute("listaAuto", autoSalone.getAutomobili());
+	    return "redirect:/listAuto";
+	}
+
+	
 	
 	@GetMapping("/detailsAuto")
 	public String detailsAuto(@RequestParam String id, ModelMap modelMap) {
@@ -61,6 +71,8 @@ public class AutosaloneController {
 	        modelMap.addAttribute("listaccessori", auto.getAccessori());
 	        return "detailsAuto";
 	}
+	
+	
 
 
 	
