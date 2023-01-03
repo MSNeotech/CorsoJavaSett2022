@@ -52,14 +52,16 @@ public class AutosaloneController {
 		return "removeAuto";
 	}
 	
+	
 	@PostMapping("/remove")
-	public String removeAuto(@RequestParam("idRemove") String idRemove, ModelMap modelMap) {
-		
-	    autoSalone.removeAutoById(idRemove);
-	    System.out.println("ID Remove:" +idRemove);
+	public String removeAuto(@RequestParam("idRemoveArray") List<String> idRemoveArray, ModelMap modelMap) {
+	    for (String idRemove : idRemoveArray) {
+	        autoSalone.removeAutoById(idRemove);
+	    }
 	    modelMap.addAttribute("listaAuto", autoSalone.getAutomobili());
 	    return "redirect:/listAuto";
 	}
+
 
 	
 	

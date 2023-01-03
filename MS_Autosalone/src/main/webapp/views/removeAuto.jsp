@@ -155,9 +155,7 @@
         <td>${auto.annoCostruzione}</td>
         <td>${auto.costo}</td>
       </tr>
-      <script>
-      console.log("Dentro il ciclo: " + auto.id);
-      </script>
+     
     </c:forEach>
   </table>
   <button type="submit" class="btn btn-success">Rimuovi</button>

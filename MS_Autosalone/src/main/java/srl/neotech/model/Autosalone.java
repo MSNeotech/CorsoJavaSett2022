@@ -105,7 +105,6 @@ public class Autosalone {
 	            automobiliDaRimuovere.add(auto);
 	        }
 	    }
-	    System.out.println("Id da rimuovre " + automobiliDaRimuovere);
 	    automobili.removeAll(automobiliDaRimuovere);
 	}
 
