@@ -28,12 +28,14 @@ public class Autosalone {
 		primaAuto.setCostruttore(ECostruttore.BUGATTI);
 		primaAuto.setModello("Veyron");
 		primaAuto.setCosto(new BigDecimal("450670.50"));
+	
 		
 	    Accessorio cerchiLega=new Accessorio();
 	    cerchiLega.setId("1");
 		cerchiLega.setClasse(EClasseAccessorio.ESTERNI);
 		cerchiLega.setTipologia(ETipologiaAccessorio.CERCHI);
 		cerchiLega.setCosto(new BigDecimal("3700.34"));
+		
 		
 		   Automobile secondaAuto = new Automobile();
 		   secondaAuto.setId("2");
@@ -108,6 +110,50 @@ public class Autosalone {
 	    automobili.removeAll(automobiliDaRimuovere);
 	}
 
+
+	public List<Automobile> search(String searchTerm) {
+	
+	    List<Automobile> result = new ArrayList<>();
+	   
+	   
+	    for (Automobile auto : automobili) {
+	    
+	       /* if (searchTerm.equalsIgnoreCase(auto.getCostruttore().name()) 
+	           || searchTerm.equalsIgnoreCase(auto.getAlimentazione().name()) 
+	           || searchTerm.equalsIgnoreCase(auto.getColore().name()) 
+	           || auto.getTarga().equals(searchTerm) || auto.getModello().equals(searchTerm)) {
+	            // Aggiungi l'automobile alla lista dei risultati
+	            result.add(auto);   
+	        }*/
+	    	/*if (auto.getCostruttore().name().contains(searchTerm)
+	    	        || auto.getAlimentazione().name().contains(searchTerm)
+	    	        || auto.getColore().name().contains(searchTerm)
+	    	        || auto.getTarga().contains(searchTerm)
+	    	        || auto.getModello().contains(searchTerm))
+	    	{
+	    	    result.add(auto);
+	    	}*/
+	    	
+	    	if (auto.getCostruttore().name().toLowerCase().contains(searchTerm.toLowerCase())
+	    	        || auto.getAlimentazione().name().toLowerCase().contains(searchTerm.toLowerCase())
+	    	        || auto.getColore().name().toLowerCase().contains(searchTerm.toLowerCase())
+	    	        || auto.getTarga().toLowerCase().contains(searchTerm.toLowerCase())
+	    	        || auto.getModello().toLowerCase().contains(searchTerm.toLowerCase()))
+	    	{
+	    	    result.add(auto);
+	    	}
+
+
+	    	
+	        else
+	        	System.out.println("Lista vuota");
+	        
+	    }
+	    System.out.println("Risultati della ricerca: " + searchTerm);
+	    System.out.println("Lista " + result);
+	    
+	    return result;
+	}
 
 
 

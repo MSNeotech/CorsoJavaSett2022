@@ -75,6 +75,27 @@ public class AutosaloneController {
 	}
 	
 	
+	@GetMapping("/searchAuto")
+	public String searchAuto(ModelMap modelMap) {
+		
+		List<Automobile> automobili = autoSalone.getAutomobili();
+
+	    modelMap.addAttribute("auto", automobili);
+
+	    return "searchAuto";
+		
+	}
+	
+	@PostMapping("/search")
+	public String search(@RequestParam("searchTerm") String search, ModelMap modelMap) {
+		
+		List<Automobile> result = autoSalone.search(search);
+	    
+	    modelMap.addAttribute("result", result);
+	    
+	    System.out.println("Contenuto del modello: " + modelMap);
+		return "searchAuto";
+	}
 
 
 	

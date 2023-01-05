@@ -85,7 +85,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="insertData" class="nav-link">
+            <a href="searchAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Cerca Auto</p>
             </a>

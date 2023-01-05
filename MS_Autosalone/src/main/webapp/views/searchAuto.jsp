@@ -106,7 +106,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gestione Autosalone</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -119,17 +118,103 @@
 
     <!-- Main content -->
     <section class="content">
-    <div class="clearfix">
-       <div class="row">
-          <div class="md-col-12 text-center" >
-            
-            <img width="300" height="300" src="${urlImmagine}"/>
+        <h3>Cerca Auto</h3>
+        
+    <div class="container">
+    <div class="row">
+
+    <div class="col-md-4">
+    <form action="search" method="post" id="form-search">
+    
+          <div class= "form-group">
+          <label>COSTRUTTORE </label>
+          <select id="costruttore" name="searchTerm" class="form-control select2bs4 select2-hidden-accessible">
+	       <c:forEach var="autoElement" items="${auto}" >
+           <option value="${autoElement.costruttore}">${autoElement.costruttore}</option>
+           </c:forEach>
+		  </select>
+          </div>
+          
+           <div class= "form-group">
+          <label>MODELLO</label>
+          <input id="modello" class= "form-control" name="searchTerm" type="text" value="">
+          </div>
+          
+          <div class= "form-group">
+          <label>COLORE </label>
+          <select id="colore" name="searchTerm" class="form-control select2bs4 select2-hidden-accessible">
+	      <c:forEach var="autoautoElement" items="${auto}" >
+          <option value="${autoautoElement.colore}">${autoautoElement.colore}</option>
+          </c:forEach> 
+		  </select>
+          </div>
+    </div>
+    
+     <div class="col-md-4">
+     
+          <div class= "form-group">
+          <label>TARGA</label>
+          <input id="targa" class= "form-control" name="searchTerm" type="text" value="">
+          </div>
+          
+          <div class= "form-group">
+          <label>ALIMENTAZIONE</label>
+           <select id="alimentazione" name="searchTerm" class="form-control select2bs4 select2-hidden-accessible">
+	     <c:forEach var="autoautoElement" items="${auto}">
+         <option value="${autoautoElement.alimentazione}">${autoautoElement.alimentazione}</option>
+         </c:forEach>
+		  </select>
           </div>
        
-       </div>
-    
+     </div> 
+        
     </div>
-
+    </div>
+    
+    <div class = "container">
+    <div class ="row">
+    <div class ="col-md-12">
+          <button type="submit" class="btn btn-success">Cerca</button>
+          </div>
+            </form>
+    </div>
+    </div>
+  
+  
+  <h3>AUTOMOBILI TROVATE</h3>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4">
+   <table class="table table-bordered table-hover dataTable dtr-inline">
+              <thead>
+              <td>ID</td>
+              <td>TARGA</td>
+              <td>COSTRUTTORE</td>
+              <td>MODELLO</td>
+              <td>COLORE</td>
+              <td>ALIMENTAZIONE</td>
+              <td></td>
+              </thead>
+              <tbody>
+               <c:forEach var="auto" items="${result}" >
+                        <tr>
+                        <td>${auto.id}</td>
+                        <td>${auto.targa}</td>
+                        <td>${auto.costruttore}</td>
+                        <td>${auto.modello}</td>
+                        <td>${auto.colore}</td>
+                        <td>${auto.alimentazione}</td>
+                        <td><a href="detailsAuto?id=${auto.id}"<input class="btn btn-primary" type="button" value="Dettagli"></button></a></td>
+                        </tr>
+              </c:forEach>
+              </tbody>
+              </table>
+              </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+  
+  </div>
+  </div>
 
     </section>
     <!-- /.content -->
