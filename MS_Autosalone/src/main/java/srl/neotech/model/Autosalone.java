@@ -5,21 +5,23 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
 public class Autosalone {
 
-	private ArrayList<Automobile> automobili=new ArrayList<Automobile>();
-	
-	
-	//Verrà chiamato da Spring, quando verrà avviata l'applicazione,  perchè è un Bean Component
+	private ArrayList<Automobile> automobili = new ArrayList<Automobile>();
+
+	// Verrà chiamato da Spring, quando verrà avviata l'applicazione, perchè è un
+	// Bean Component
 	public Autosalone() {
-		//popolare la lista delle autos...
-		Automobile primaAuto=new Automobile();
+		// popolare la lista delle autos...
+		Automobile primaAuto = new Automobile();
 		primaAuto.setId("1");
 		primaAuto.setTarga("BR556TY");
 		primaAuto.setColore(EColore.BLU);
@@ -28,57 +30,53 @@ public class Autosalone {
 		primaAuto.setCostruttore(ECostruttore.BUGATTI);
 		primaAuto.setModello("Veyron");
 		primaAuto.setCosto(new BigDecimal("450670.50"));
-	
-		
-	    Accessorio cerchiLega=new Accessorio();
-	    cerchiLega.setId("1");
+
+		Accessorio cerchiLega = new Accessorio();
+		cerchiLega.setId("1");
 		cerchiLega.setClasse(EClasseAccessorio.ESTERNI);
 		cerchiLega.setTipologia(ETipologiaAccessorio.CERCHI);
 		cerchiLega.setCosto(new BigDecimal("3700.34"));
-		
-		
-		   Automobile secondaAuto = new Automobile();
-		   secondaAuto.setId("2");
-	       secondaAuto.setTarga("GL230GH");
-	       secondaAuto.setColore(EColore.NERO);
-	       secondaAuto.setAlimentazione(EAlimentazione.BENZINA);
-	       secondaAuto.setAnnoCostruzione("2022");
-	       secondaAuto.setCostruttore(ECostruttore.FERRARI);
-	       secondaAuto.setModello("Roma");
-	       secondaAuto.setCosto(new BigDecimal("300009.50"));
-	       
-	       Automobile terzaAuto = new Automobile();
 
-	        terzaAuto.setId("3");
-	        terzaAuto.setTarga("GL228GH");
-	        terzaAuto.setColore(EColore.ROSSO);
-	        terzaAuto.setAlimentazione(EAlimentazione.BENZINA);
-	        terzaAuto.setAnnoCostruzione("2022");
-	        terzaAuto.setCostruttore(ECostruttore.LAMBORGHINI);
-	        terzaAuto.setModello("Huracan");
-	        terzaAuto.setCosto(new BigDecimal("400009.50"));
-	        
-	        Automobile quartaAuto = new Automobile();
-	        
-	        quartaAuto.setId("4");
-	        quartaAuto.setTarga("GL230GE");
-	        quartaAuto.setColore(EColore.NERO);
-	        quartaAuto.setAlimentazione(EAlimentazione.BENZINA);
-	        quartaAuto.setAnnoCostruzione("2022");
-	        quartaAuto.setCostruttore(ECostruttore.MASERATI);
-	        quartaAuto.setModello("MC20");
-	        quartaAuto.setCosto(new BigDecimal("500009.50"));
+		Automobile secondaAuto = new Automobile();
+		secondaAuto.setId("2");
+		secondaAuto.setTarga("GL230GH");
+		secondaAuto.setColore(EColore.NERO);
+		secondaAuto.setAlimentazione(EAlimentazione.BENZINA);
+		secondaAuto.setAnnoCostruzione("2022");
+		secondaAuto.setCostruttore(ECostruttore.FERRARI);
+		secondaAuto.setModello("Roma");
+		secondaAuto.setCosto(new BigDecimal("300009.50"));
 
-	        primaAuto.getAccessori().add(cerchiLega);
-	        automobili.add(primaAuto);
-	        automobili.add(secondaAuto);
-	        automobili.add(terzaAuto);
-	        automobili.add(quartaAuto);
-		
-	
+		Automobile terzaAuto = new Automobile();
+
+		terzaAuto.setId("3");
+		terzaAuto.setTarga("GL228GH");
+		terzaAuto.setColore(EColore.ROSSO);
+		terzaAuto.setAlimentazione(EAlimentazione.BENZINA);
+		terzaAuto.setAnnoCostruzione("2022");
+		terzaAuto.setCostruttore(ECostruttore.LAMBORGHINI);
+		terzaAuto.setModello("Huracan");
+		terzaAuto.setCosto(new BigDecimal("400009.50"));
+
+		Automobile quartaAuto = new Automobile();
+
+		quartaAuto.setId("4");
+		quartaAuto.setTarga("GL230GE");
+		quartaAuto.setColore(EColore.NERO);
+		quartaAuto.setAlimentazione(EAlimentazione.BENZINA);
+		quartaAuto.setAnnoCostruzione("2022");
+		quartaAuto.setCostruttore(ECostruttore.MASERATI);
+		quartaAuto.setModello("MC20");
+		quartaAuto.setCosto(new BigDecimal("500009.50"));
+
+		primaAuto.getAccessori().add(cerchiLega);
+		automobili.add(primaAuto);
+		automobili.add(secondaAuto);
+		automobili.add(terzaAuto);
+		automobili.add(quartaAuto);
+
 	}
 
-	
 	public ArrayList<Automobile> getAutomobili() {
 		return automobili;
 	}
@@ -86,76 +84,34 @@ public class Autosalone {
 	public void setAutomobili(ArrayList<Automobile> automobili) {
 		this.automobili = automobili;
 	}
-	
+
 	public Automobile getAutomobileById(String id) {
-		
-		   for(Automobile auto: automobili) {
-		
-			   if(auto.getId().equals(id)) {
-				   return auto;
-			   }
-		   }
-		   return null;
 
-}
-	
+		for (Automobile auto : automobili) {
+
+			if (auto.getId().equals(id)) {
+				return auto;
+			}
+		}
+		return null;
+
+	}
+
 	public void removeAutoById(String idRemove) {
-	    List<Automobile> automobiliDaRimuovere = new ArrayList<>();
-	    
-	    for (Automobile auto : automobili) {
-	        if (auto.getId().equals(idRemove)) {
-	            automobiliDaRimuovere.add(auto);
-	        }
-	    }
-	    automobili.removeAll(automobiliDaRimuovere);
+		List<Automobile> automobiliDaRimuovere = new ArrayList<>();
+
+		for (Automobile auto : automobili) {
+			if (auto.getId().equals(idRemove)) {
+				automobiliDaRimuovere.add(auto);
+			}
+		}
+		automobili.removeAll(automobiliDaRimuovere);
 	}
-
-
-	public List<Automobile> search(String searchTerm) {
 	
-	    List<Automobile> result = new ArrayList<>();
-	   
-	   
-	    for (Automobile auto : automobili) {
-	    
-	       /* if (searchTerm.equalsIgnoreCase(auto.getCostruttore().name()) 
-	           || searchTerm.equalsIgnoreCase(auto.getAlimentazione().name()) 
-	           || searchTerm.equalsIgnoreCase(auto.getColore().name()) 
-	           || auto.getTarga().equals(searchTerm) || auto.getModello().equals(searchTerm)) {
-	            // Aggiungi l'automobile alla lista dei risultati
-	            result.add(auto);   
-	        }*/
-	    	/*if (auto.getCostruttore().name().contains(searchTerm)
-	    	        || auto.getAlimentazione().name().contains(searchTerm)
-	    	        || auto.getColore().name().contains(searchTerm)
-	    	        || auto.getTarga().contains(searchTerm)
-	    	        || auto.getModello().contains(searchTerm))
-	    	{
-	    	    result.add(auto);
-	    	}*/
-	    	
-	    	if (auto.getCostruttore().name().toLowerCase().contains(searchTerm.toLowerCase())
-	    	        || auto.getAlimentazione().name().toLowerCase().contains(searchTerm.toLowerCase())
-	    	        || auto.getColore().name().toLowerCase().contains(searchTerm.toLowerCase())
-	    	        || auto.getTarga().toLowerCase().contains(searchTerm.toLowerCase())
-	    	        || auto.getModello().toLowerCase().contains(searchTerm.toLowerCase()))
-	    	{
-	    	    result.add(auto);
-	    	}
-
-
-	    	
-	        else
-	        	System.out.println("Lista vuota");
-	        
-	    }
-	    System.out.println("Risultati della ricerca: " + searchTerm);
-	    System.out.println("Lista " + result);
-	    
-	    return result;
-	}
-
-
-
+	
+	
+	
+	 
+	
 	
 }

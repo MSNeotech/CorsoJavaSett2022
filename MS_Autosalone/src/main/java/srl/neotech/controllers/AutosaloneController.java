@@ -15,12 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import srl.neotech.model.Accessorio;
 import srl.neotech.model.Automobile;
 import srl.neotech.model.Autosalone;
+import srl.neotech.requestresponse.CercaAuto;
+import srl.neotech.services.AutosaloneService;
 
 @Controller
 public class AutosaloneController {
 
 	@Autowired
 	Autosalone autoSalone;
+	
+	@Autowired
+	AutosaloneService service;
 	
 	@GetMapping("/listAuto")
 	public String getListaAuto(ModelMap modelMap) {
@@ -75,25 +80,23 @@ public class AutosaloneController {
 	}
 	
 	
+	
 	@GetMapping("/searchAuto")
-	public String searchAuto(ModelMap modelMap) {
-		
-		List<Automobile> automobili = autoSalone.getAutomobili();
-
-	    modelMap.addAttribute("auto", automobili);
-
-	    return "searchAuto";
-		
-	}
+    public String searchAuto(ModelMap modelMap) {
+        List<Automobile> automobili = autoSalone.getAutomobili();
+        modelMap.addAttribute("auto", automobili);
+        modelMap.addAttribute("searchTerm", new CercaAuto());
+        return "searchAuto";
+    }
+	 
 	
 	@PostMapping("/search")
-	public String search(@RequestParam("searchTerm") String search, ModelMap modelMap) {
+	public String search(CercaAuto searchTerm, ModelMap modelMap) {
 		
-		List<Automobile> result = autoSalone.search(search);
+		List<Automobile> result = service.confrontaAuto(searchTerm);
 	    
 	    modelMap.addAttribute("result", result);
-	    
-	    System.out.println("Contenuto del modello: " + modelMap);
+	   
 		return "searchAuto";
 	}
 

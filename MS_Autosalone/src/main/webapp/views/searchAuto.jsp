@@ -128,24 +128,30 @@
     
           <div class= "form-group">
           <label>COSTRUTTORE </label>
-          <select id="costruttore" name="searchTerm" class="form-control select2bs4 select2-hidden-accessible">
-	       <c:forEach var="autoElement" items="${auto}" >
-           <option value="${autoElement.costruttore}">${autoElement.costruttore}</option>
-           </c:forEach>
+          <select id="costruttore" name="costruttore" class="form-control select2bs4 select2-hidden-accessible">
+	       
+          <option value="%00">NESSUNO</option>
+          <option value="FERRARI">FERRARI</option>
+	      <option value="LAMBORGHINI">LAMBORGHINI</option>
+	      <option value="MASERATI">MASERATI</option>
+	      <option value="BUGATTI">BUGATTI</option>
 		  </select>
           </div>
           
            <div class= "form-group">
           <label>MODELLO</label>
-          <input id="modello" class= "form-control" name="searchTerm" type="text" value="">
+          <input id="modello" class= "form-control" name="modello" type="text" value="">
           </div>
           
           <div class= "form-group">
           <label>COLORE </label>
-          <select id="colore" name="searchTerm" class="form-control select2bs4 select2-hidden-accessible">
-	      <c:forEach var="autoautoElement" items="${auto}" >
-          <option value="${autoautoElement.colore}">${autoautoElement.colore}</option>
-          </c:forEach> 
+          <select id="colore" name="colore" class="form-control select2bs4 select2-hidden-accessible">
+	      
+          <option value="%00">NESSUNO</option>
+          <option value="FERRARI">BLU</option>
+	      <option value="LAMBORGHINI">ROSSO</option>
+	      <option value="MASERATI">VERDE</option>
+	      <option value="BUGATTI">GIALLO</option>
 		  </select>
           </div>
     </div>
@@ -154,15 +160,17 @@
      
           <div class= "form-group">
           <label>TARGA</label>
-          <input id="targa" class= "form-control" name="searchTerm" type="text" value="">
+          <input id="targa" class= "form-control" name="targa" type="text" value="">
           </div>
           
           <div class= "form-group">
           <label>ALIMENTAZIONE</label>
-           <select id="alimentazione" name="searchTerm" class="form-control select2bs4 select2-hidden-accessible">
-	     <c:forEach var="autoautoElement" items="${auto}">
-         <option value="${autoautoElement.alimentazione}">${autoautoElement.alimentazione}</option>
-         </c:forEach>
+           <select id="alimentazione" name="alimentazione" class="form-control select2bs4 select2-hidden-accessible">
+         <option value="%00">NESSUNO</option>
+          <option value="FERRARI">IBRIDO</option>
+	      <option value="LAMBORGHINI">BENZINA</option>
+	      <option value="MASERATI">GAS</option>
+	      <option value="BUGATTI">BUGATTI</option>
 		  </select>
           </div>
        

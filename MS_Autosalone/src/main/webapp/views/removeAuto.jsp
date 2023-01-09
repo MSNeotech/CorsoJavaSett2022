@@ -144,7 +144,7 @@
         <td>
           <div class="btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary">
-              <input type="checkbox" name="idRemove" value="${auto.id}" checked autocomplete="off">
+              <input type="checkbox" name="idRemove" value="${auto.id}" autocomplete="off">
             </label>
           </div>
         </td>

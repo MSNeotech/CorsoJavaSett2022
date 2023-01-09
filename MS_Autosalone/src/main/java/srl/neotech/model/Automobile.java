@@ -18,6 +18,8 @@ public class Automobile {
 	private BigDecimal costo;
 	private ArrayList<Accessorio> accessori=new ArrayList<Accessorio>();
 	
+	
+	
 	public String getId() {
 		return id;
 	}
