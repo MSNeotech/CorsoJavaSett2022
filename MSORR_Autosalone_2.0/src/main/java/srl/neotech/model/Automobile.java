@@ -71,4 +71,13 @@ public class Automobile {
 		this.accessori = accessori;
 	}
 	
+	
+	public Automobile(String id, String targa) {
+		this.id =id;
+		this.targa =targa;
+	}
+	
+	public Automobile() {
+		
+	}
 }

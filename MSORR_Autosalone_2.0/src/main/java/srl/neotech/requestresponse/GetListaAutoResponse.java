@@ -7,7 +7,11 @@ import srl.neotech.model.Automobile;
 public class GetListaAutoResponse extends ResponseBase{
 
 	private ArrayList<Automobile> listaAuto = new ArrayList<Automobile>();
-
+	
+	
+	
+	
+	
 	public ArrayList<Automobile> getListaAuto() {
 		return listaAuto;
 	}

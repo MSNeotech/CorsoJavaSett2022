@@ -21,43 +21,27 @@ public class AutosaloneService {
 	public List<Automobile> confrontaAuto(CercaAuto searchTerm) {
 		
 		List<Automobile> autoTrovate = new ArrayList<Automobile>();
-		autoTrovate.addAll(autoSalone.getAutomobili());
 		
-		for (Automobile auto : autoTrovate) {
+		for (Automobile auto : autoSalone.getAutomobili()) {
 			
-			if (searchTerm.getTarga() != null && searchTerm.getTarga().isEmpty()==false) {
-				if (auto.getTarga().contains(searchTerm.getTarga())==false) {
-			
-					autoTrovate.remove(auto);
+			if ( searchTerm.getTarga().length()>0 && auto.getTarga().contains(searchTerm.getTarga())) {
+				
+					autoTrovate.add(auto);
 					continue;
-			}
+				
+			
 			}
 				
-				/*if (searchTerm.getColore() != null && searchTerm.getColore().isEmpty()==false) {
-				if(auto.getColore().equals(searchTerm.getColore())) {
 				
-					autoTrovate.remove(auto);
+				if(searchTerm.getColore().length()>0 && auto.getColore().name().equals(searchTerm.getColore())) {
+				
+					autoTrovate.add(auto);
 					continue;
 				}
-			}*/
-			
-				if (searchTerm.getCosto() != null && searchTerm.getCosto().isEmpty()==false) {
-					if(auto.getCosto().equals(searchTerm.getCosto())) {
-					
-						autoTrovate.remove(auto);
-						continue;
-					}
-				}
-				if (searchTerm.getCostruttore() != null && searchTerm.getCostruttore().isEmpty()==false) {
-					if(auto.getCostruttore().equals(searchTerm.getCostruttore())) {
-						
-						autoTrovate.remove(auto);
-						continue;
-					}
-				}
-			
-		}
-		
+				
+				
+			}
+				
 		
 	
 		return autoTrovate;

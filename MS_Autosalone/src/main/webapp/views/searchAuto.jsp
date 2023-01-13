@@ -130,7 +130,7 @@
           <label>COSTRUTTORE </label>
           <select id="costruttore" name="costruttore" class="form-control select2bs4 select2-hidden-accessible">
 	       
-          <option value="%00">NESSUNO</option>
+          <option value="">NESSUNO</option>
           <option value="FERRARI">FERRARI</option>
 	      <option value="LAMBORGHINI">LAMBORGHINI</option>
 	      <option value="MASERATI">MASERATI</option>
@@ -147,11 +147,9 @@
           <label>COLORE </label>
           <select id="colore" name="colore" class="form-control select2bs4 select2-hidden-accessible">
 	      
-          <option value="%00">NESSUNO</option>
-          <option value="FERRARI">BLU</option>
-	      <option value="LAMBORGHINI">ROSSO</option>
-	      <option value="MASERATI">VERDE</option>
-	      <option value="BUGATTI">GIALLO</option>
+          <option value="">NESSUNO</option>
+          <option value="BLU">BLU</option>
+	      <option value="ROSSO">ROSSO</option>
 		  </select>
           </div>
     </div>
@@ -166,11 +164,10 @@
           <div class= "form-group">
           <label>ALIMENTAZIONE</label>
            <select id="alimentazione" name="alimentazione" class="form-control select2bs4 select2-hidden-accessible">
-         <option value="%00">NESSUNO</option>
-          <option value="FERRARI">IBRIDO</option>
-	      <option value="LAMBORGHINI">BENZINA</option>
-	      <option value="MASERATI">GAS</option>
-	      <option value="BUGATTI">BUGATTI</option>
+         <option value="">NESSUNO</option>
+          <option value="IBRIDO">IBRIDO</option>
+	      <option value="BENZINA">BENZINA</option>
+	      <option value="GAS">GAS</option>
 		  </select>
           </div>
        

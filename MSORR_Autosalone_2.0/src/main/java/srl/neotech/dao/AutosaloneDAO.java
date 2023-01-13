@@ -1,16 +1,27 @@
-package srl.neotech.model;
+package srl.neotech.dao;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Autosalone {
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+import srl.neotech.model.Automobile;
+import srl.neotech.model.EAlimentazione;
+import srl.neotech.model.EColore;
+import srl.neotech.model.ECostruttore;
+
+@Component
+public class AutosaloneDAO {
 
 	private ArrayList<Automobile> automobili = new ArrayList<Automobile>();
 
 	// Verrà chiamato da Spring, quando verrà avviata l'applicazione, perchè è un
 	// Bean Component
-	public Autosalone() {
-		// popolare la lista delle autos...
+
+	public AutosaloneDAO() {
+		
+		
 		Automobile primaAuto = new Automobile();
 		primaAuto.setId("1");
 		primaAuto.setTarga("BR556TY");
@@ -21,11 +32,11 @@ public class Autosalone {
 		primaAuto.setModello("Veyron");
 		primaAuto.setCosto(new BigDecimal("450670.50"));
 
-		Accessorio cerchiLega = new Accessorio();
+		/*Accessorio cerchiLega = new Accessorio();
 		cerchiLega.setId("1");
 		cerchiLega.setClasse(EClasseAccessorio.ESTERNI);
 		cerchiLega.setTipologia(ETipologiaAccessorio.CERCHI);
-		cerchiLega.setCosto(new BigDecimal("3700.34"));
+		cerchiLega.setCosto(new BigDecimal("3700.34"));*/
 
 		Automobile secondaAuto = new Automobile();
 		secondaAuto.setId("2");
@@ -59,13 +70,14 @@ public class Autosalone {
 		quartaAuto.setModello("MC20");
 		quartaAuto.setCosto(new BigDecimal("500009.50"));
 
-		primaAuto.getAccessori().add(cerchiLega);
+		//primaAuto.getAccessori().add(cerchiLega);
 		automobili.add(primaAuto);
 		automobili.add(secondaAuto);
 		automobili.add(terzaAuto);
 		automobili.add(quartaAuto);
 
 	}
+	
 
 	public ArrayList<Automobile> getAutomobili() {
 		return automobili;
