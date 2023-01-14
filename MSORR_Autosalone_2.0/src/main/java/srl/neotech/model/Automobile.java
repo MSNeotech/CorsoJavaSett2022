@@ -72,9 +72,10 @@ public class Automobile {
 	}
 	
 	
-	public Automobile(String id, String targa) {
+	public Automobile(String id, String targa, EColore colore) {
 		this.id =id;
 		this.targa =targa;
+		this.colore = colore;
 	}
 	
 	public Automobile() {
