@@ -20,9 +20,6 @@
           <label>Regione </label>
           <select id="regione" name="regione" class="form-control select2bs4 select2-hidden-accessible">
           <option value="">Selezione un opzione</option>
-          <option value="lazio">Lazio</option>
-	      <option value="campania">Campania</option>
-	      <option value="piemonte">Piemonte</option>
 		  </select>
 </div>
 </div>
@@ -48,8 +45,8 @@
 <div class="md-col-12">
 <div class= "form-group">
           <label>Comune</label>
-          <select id="comune" name="comune" class="form-control select2bs4 select2-hidden-accessible">
-          <option value="">Selezione un opzione</option>
+          <select id="comuneAuto" name="comuneAuto" class="form-control select2bs4 select2-hidden-accessible">
+          <option>Selezione un opzione</option>
 		  </select>
 </div>
 </div>
