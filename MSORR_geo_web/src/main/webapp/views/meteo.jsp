@@ -9,6 +9,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 <script src="static/js/geo.js"> </script>
 <title>Meteo</title>
 </head>
@@ -45,14 +48,12 @@
 <div class="md-col-12">
 <div class= "form-group">
           <label>Comune</label>
-          <select id="comuneAuto" name="comuneAuto" class="form-control select2bs4 select2-hidden-accessible">
-          <option>Selezione un opzione</option>
+          <!-- OGGETTO AUTOCOMPLETE -->
+         <input id="meteoAuto" name="meteoAuto" class="form-control basicAutoComplete" type="text" autocomplete="off">
 		  </select>
 </div>
 </div>
 </div>
-
-
 
 </body>
 </html>
