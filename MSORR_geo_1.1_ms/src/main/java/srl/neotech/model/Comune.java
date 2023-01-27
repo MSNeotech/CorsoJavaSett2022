@@ -5,6 +5,9 @@ public class Comune {
 	private String istat;
 	private String nome;
 	private String siglaProvincia;
+	private String lat;
+	private String lang;
+	
 	
 	public Comune(String istat, String nome, String siglaProvincia) {
 		super();
@@ -13,6 +16,15 @@ public class Comune {
 		this.siglaProvincia = siglaProvincia;
 
 	}
+	
+	
+	public Comune(String lat, String lang) {
+		super();
+		this.lat = lat;
+		this.lang = lang;
+	}
+
+
 	public String getIstat() {
 		return istat;
 	}
@@ -31,5 +43,19 @@ public class Comune {
 	public void setSiglaProv(String siglaProv) {
 		this.siglaProvincia = siglaProv;
 	}
+	public String getLat() {
+		return lat;
+	}
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+	
+	
 	
 }

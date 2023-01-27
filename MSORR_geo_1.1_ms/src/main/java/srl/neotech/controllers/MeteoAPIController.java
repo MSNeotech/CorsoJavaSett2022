@@ -1,24 +1,26 @@
 package srl.neotech.controllers;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import srl.neotech.model.Comune;
 import srl.neotech.model.ComuneAuto;
+import srl.neotech.model.MeteoGiornaliero;
+import srl.neotech.model.OpenMeteoDaily;
 import srl.neotech.model.Provincia;
 import srl.neotech.model.Regione;
 import srl.neotech.requestresponse.GetListaComuniAutocompleteReponse;
 import srl.neotech.requestresponse.GetListaComuniResponse;
 import srl.neotech.requestresponse.GetListaProvinceResponse;
 import srl.neotech.requestresponse.GetListaRegioniResponse;
+import srl.neotech.requestresponse.GetMeteoResponse;
 import srl.neotech.services.MeteoService;
 
 @RestController
@@ -121,23 +123,31 @@ public class MeteoAPIController {
 		return response;
 	}
 	
-	/*
-	 * @ResponseBody
-	 * 
-	 * @GetMapping(value = "/getMeteo",produces = MediaType.APPLICATION_JSON_VALUE)
-	 * public GetMeteoResponse getMeteo(@PathVariable ("id") Integer idComune) {
-	 * 
-	 * //inizializzo la response GetMeteoResponse response=new GetMeteoResponse ();
-	 * 
-	 * try { //chiamo il service //ArrayList<Regione> listaRegioni =
-	 * elementoService.getListaelementi();
-	 * 
-	 * //preparo la response //response.setElementi(listaRegioni);
-	 * response.setCode("OK"); } catch (Exception e) { // TODO Auto-generated catch
-	 * block e.printStackTrace(); response.setCode("KO");
-	 * response.setDescr(e.getMessage()); } return response; }
-	 */
 	
+	@ResponseBody
+	@GetMapping(value = "/getMeteo",produces = MediaType.APPLICATION_JSON_VALUE)
+	public GetMeteoResponse getMeteo(@RequestParam String istat) {
+
+		//inizializzo la response 
+		GetMeteoResponse response=new GetMeteoResponse ();
+
+		try { 
+		//chiamo il service 
+			List<MeteoGiornaliero> previsioni = meteoService.getMeteo(istat);
+			
+
+		//preparo la response 
+			response.setPrevisioni(previsioni);
+			response.setCode("OK"); 
+			} 
+		catch (Exception e) { 
+			// TODO Auto-generated catch
+			 e.printStackTrace(); response.setCode("KO");
+			response.setDescr(e.getMessage()); 
+			} 
+		return response; 
+	}
+	 
 	
-	
+
 }

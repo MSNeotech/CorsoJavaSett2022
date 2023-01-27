@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import srl.neotech.model.Comune;
 import srl.neotech.model.ComuneAuto;
+import srl.neotech.model.MeteoGiornaliero;
 import srl.neotech.model.Provincia;
 import srl.neotech.model.Regione;
 
@@ -82,6 +83,23 @@ public List<Provincia> getListaProvince(Integer id_regione){
 		        );
 		return listaComuni;
 	}
+	
+	public Comune getMeteo(String istat){
+		MapSqlParameterSource params=new MapSqlParameterSource();
+		params.addValue("istat", istat);
+		String query="select lat, lng  from geoloc where istat=:istat";
+		
+		Comune comuni = jdbcTemplate.queryForObject(
+			query,
+	        params,
+	       Comune.class);
+			
+		
+   	 return comuni;
+   	 
+    }
+	
+	
 	
 	
 }

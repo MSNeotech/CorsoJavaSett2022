@@ -11,7 +11,10 @@ public class GetListaProvinceResponse extends ResponseBase {
 	public List<Provincia> getProvince() {
 		return province;
 	}
-	public List<Provincia> setProvince(List<Provincia> province) {
-		return province;
+
+	public void setProvince(List<Provincia> province) {
+		this.province = province;
 	}
+
+	
 }
