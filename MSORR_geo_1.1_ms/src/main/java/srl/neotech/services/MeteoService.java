@@ -41,10 +41,10 @@ public class MeteoService {
  	}
      
      public List<MeteoGiornaliero> getMeteo(String istat){
-    	String lat="52.52";
- 		String lng="13.41";
+    	
+    	 Comune c =meteoDAO.getMeteo(istat);
  		
- 		WebClient webClient=WebClient.create("https://api.open-meteo.com/v1/forecast?latitude="+lat+"&longitude="+lng+"&timezone=CET&daily=weathercode,temperature_2m_min,temperature_2m_max,rain_sum");
+ 		WebClient webClient=WebClient.create("https://api.open-meteo.com/v1/forecast?latitude="+c.getLat()+"&longitude="+c.getLang()+"&timezone=CET&daily=weathercode,temperature_2m_min,temperature_2m_max,rain_sum");
  		
  		OpenMeteoRoot root=webClient.get()
  		.retrieve()

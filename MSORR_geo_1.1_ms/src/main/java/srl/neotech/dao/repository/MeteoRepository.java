@@ -89,13 +89,13 @@ public List<Provincia> getListaProvince(Integer id_regione){
 		params.addValue("istat", istat);
 		String query="select lat, lng  from geoloc where istat=:istat";
 		
-		Comune comuni = jdbcTemplate.queryForObject(
+		List<Comune> comuni = jdbcTemplate.query(
 			query,
 	        params,
-	       Comune.class);
+	        (rs, rowNum) -> new Comune(rs.getString("lat"), rs.getString("lng")));
 			
 		
-   	 return comuni;
+   	 return comuni.get(0);
    	 
     }
 	

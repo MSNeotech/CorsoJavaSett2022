@@ -11,8 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script src="static/js/fireAjax.js"></script>
 
@@ -70,7 +69,7 @@
 <div class="col-md-8">
 <table id="tabPrev" class="table table-light table-striped">
 <tr><th>Giorno</th><th>Previsioni</th><th>Temp max</th><th>Temp min</th><th>Precipitazioni</th></tr>
-<tbody>
+<tbody id="bodyPrev">
 </tbody>
 </table>
 </div>
@@ -81,7 +80,7 @@
 		
 <script>
 $(document).ready(function(){
-	
+	var istat;
 	//getList.reload button
 	   //$('#tableDatas tbody').empty();
 	  datas=fire_ajax_get("http://localhost:8080/MSORR_geo_1.1_ms/listaRegioni");
@@ -127,7 +126,8 @@ $(document).ready(function(){
 	    },
 	    minLength: 3,
 	    select: function( event, ui ) {
-	        alert("id:"+ui.item.id+" titolo:"+ui.item.value);
+	    	istat=ui.item.id;
+	    	
 	      },
 	    open: function() {
 	      $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -138,35 +138,33 @@ $(document).ready(function(){
 	  });
 	
 	$("#comune").change(function(){
-		var istat=$("#comune").val();
+		istat=$("#comune").val();
 		$("#prevPuls").prop("disabled", false);
 	})
 	
 	$("#prevPuls").click(function(){
-	var istat=$("#comune").val();
 	
 	var previsioni=fire_ajax_get("http://localhost:8080/MSORR_geo_1.1_ms/getMeteo?istat="+istat);
 	var iconaMeteo;
+	$("#bodyPrev").empty();
 	previsioni.previsioni.forEach(function(previsione){
 		
-// 		if (previsioni.codiceMeteo<2) iconaMeteo="<i class='fa-solid fa-sun'><soleggiato</i>";
-// 		else if (previsioni.codiceMeteo<4) iconaMeteo="<i class='fa-solid fa-cloud'>nuvoloso</i>";
-// 		else if (previsioni.codiceMeteo<50) iconaMeteo="<i class='fa-solid fa-smog'>nebbia</i>";
-// 		else if (previsioni.codiceMeteo<60) iconaMeteo="<i class='fa-solid fa-cloud-sun-rain'>piovischio</i>";
-// 		else if (previsioni.codiceMeteo<70) iconaMeteo="<i class='fa-solid fa-cloud-showers-heavy'>pioggia</i>";
-// 		else if (previsioni.codiceMeteo<80) iconaMeteo="<i class='fa-regular fa-snowflake'>neve</i>";
-// 		else iconaMeteo="<i class='fa-solid fa-cloud-bolt'>temporale</i>";
-	
-		$("#tabPrev").find('tbody').append("<tr><td>"+previsione.data+"</td><td>"+iconaMeteo+"</td><td>"+previsione.tempMin+"</td><td>"+previsione.tempMin+"</td><td>"+previsione.precipitazione+"</td></tr>");
+		   if (previsione.codiceMeteo==0 || previsione.codiceMeteo==1) iconaMeteo="<i class='fa-solid fa-sun'></i> soleggiato";
+		        else if (previsione.codiceMeteo==2 || previsione.weathercode==3) iconaMeteo="<i class='fa-solid fa-cloud'></i> nuvoloso";
+		        else if (previsione.codiceMeteo<60) iconaMeteo="<i class='fa-solid fa-smog'></i> nebbia";
+		        else if (previsione.codiceMeteo<70) iconaMeteo="<i class='fa-solid fa-cloud-rain'></i> pioggia";
+		        else if (previsione.codiceMeteo<80) iconaMeteo="<i class='fa-regular fa-snowflake'></i> neve"
+		        else if (previsione.codiceMeteo<85) iconaMeteo="<i class='fa-solid fa-cloud-showers-heavy'></i> rovesci";
+		        else if (previsione.codiceMeteo<90) iconaMeteo="<i class='fa-solid fa-cloud-meatball'></i> bufera";
+		        else iconaMeteo="<i class='fa-solid fa-cloud-bolt'> temporale</i>";
+	$("#bodyPrev").append("<tr><td>"+previsione.data+"</td><td>"+iconaMeteo+"</td><td>"+previsione.tempMin+"</td><td>"+previsione.tempMin+"</td><td>"+previsione.precipitazione+"</td></tr>");
 
 			})
 		
 	});
 });
 
-	    
-
-
+	   
 </script>
 </body>
 </html>
