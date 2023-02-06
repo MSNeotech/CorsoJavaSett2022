@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="7c8c45f3-162d-4522-a0ea-200114e5a5d6" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/srl/neotech/entity" />
+    <option name="reIgnoreSlowDbConnections">
+      <ignoreDs id="7c8c45f3-162d-4522-a0ea-200114e5a5d6" />
+    </option>
+  </component>
+</project>
