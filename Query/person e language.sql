@@ -1,4 +1,4 @@
-SELECT person.person_id, person.person_name, language.language_name
+SELECT person.person_id, person.person_name,movie.title ,language.language_name
 FROM person
 join movie_crew on person.person_id = movie_crew.person_id
 join movie on movie_crew.movie_id = movie.movie_id
