@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="7c8c45f3-162d-4522-a0ea-200114e5a5d6" name="MS_Hibernate" url="jdbc:mysql://3.74.73.134/film_academy?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
+    </data-sources>
+    <data-source-infos>
+      <data-source-info id="7c8c45f3-162d-4522-a0ea-200114e5a5d6" persistence-unit-name="Default" />
+    </data-source-infos>
+  </component>
+</project>
