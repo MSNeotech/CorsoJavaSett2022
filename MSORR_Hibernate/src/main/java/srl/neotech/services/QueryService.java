@@ -3,18 +3,28 @@ package srl.neotech.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import srl.neotech.dao.ActorDepartmentDAO;
 import srl.neotech.dao.MovieBradPittActionDAO;
 import srl.neotech.dao.MovieBradPittDAO;
+import srl.neotech.dao.PersonCastDAO;
+import srl.neotech.dao.PersonLanguageDAO;
+import srl.neotech.dao.ProductionBudgetDAO;
 import srl.neotech.dto.ActorDepartmentDTO;
 import srl.neotech.dto.MovieBradPittActionDTO;
 import srl.neotech.dto.MovieBradPittDTO;
+import srl.neotech.dto.PersonCastDTO;
+import srl.neotech.dto.PersonLanguageDTO;
+import srl.neotech.dto.ProductionBudgetDTO;
 import srl.neotech.entity.ActorDepartmentEntity;
 import srl.neotech.entity.MovieBradPittActionEntity;
 import srl.neotech.entity.MovieBradPittEntity;
+import srl.neotech.entity.Person;
+import srl.neotech.entity.PersonLanguageEntity;
+import srl.neotech.entity.ProductionBudgetEntity;
 
 @Service
 public class QueryService {
@@ -27,13 +37,19 @@ public class QueryService {
 
 	@Autowired
 	ActorDepartmentDAO query3;
-	/*
-	 * @Autowired CProduzioneBudgetDAO query4;
-	 * 
-	 * @Autowired AttoriLinguaDAO query5;
-	 * 
-	 * @Autowired AttoriCastDAO query6;
-	 */
+	
+    @Autowired 
+    ProductionBudgetDAO query4;
+	  
+	@Autowired
+	PersonLanguageDAO query5;
+	  
+   @Autowired 
+   PersonCastDAO query6;
+   
+   @Autowired
+   ModelMapper model;
+	 
 
 	public List<Object> switchQuery(Integer numero) {
 		List<Object> result = new ArrayList<>();
@@ -47,6 +63,12 @@ public class QueryService {
 		case 3:
 			result.add(getActorDepartment("Production", "Directing"));
 			break;
+		case 4: 
+			result.add(getProductionBudget(300000));
+		case 5: 
+			result.add(getPersonLanguage("Italiano"));
+		case 6:
+			result.add(getPersonCast());
 		}
 
 		return result;
@@ -76,11 +98,54 @@ public class QueryService {
 		List<ActorDepartmentDTO> actorDep = new ArrayList<>();
 		List<ActorDepartmentEntity> actorDepEnt = query3.getActorDepartment(depName1, depName2);
 		for (ActorDepartmentEntity entity : actorDepEnt) {
-			ActorDepartmentDTO dto = new ActorDepartmentDTO(entity.personName(), entity.departmentName());
+			ActorDepartmentDTO dto = new ActorDepartmentDTO(entity.getPersonName(), entity.getDepartmentName());
 			actorDep.add(dto);
 		}
 
 		return actorDep;
 	}
+	
+	private List<ProductionBudgetDTO> getProductionBudget(Integer budget){
+		
+		List<ProductionBudgetDTO> prodDTO = new ArrayList<>();
+		List<ProductionBudgetEntity> prodEntity = query4.getProductionBudget(budget);
+		
+		for(ProductionBudgetEntity entity: prodEntity) {
+			ProductionBudgetDTO dto = new ProductionBudgetDTO(entity.getCompanyName(), entity.getTitle(), entity.getBudget());
+			prodDTO.add(dto);
+		}
+		
+		return prodDTO;
+	}
+	
+	private List<PersonLanguageDTO> getPersonLanguage(String lang){
+		
+		List<PersonLanguageDTO> langDTO = new ArrayList<>();
+		List<PersonLanguageEntity> langEntity = query5.getPersonLanguage(lang); 
+		
+		for(PersonLanguageEntity entity: langEntity) {
+			PersonLanguageDTO dto = new PersonLanguageDTO(entity.getId(), entity.getPersonName(), 
+					                                      entity.getTitle(), entity.getLanguageName());
+		    langDTO.add(dto);
+		}
+		return langDTO;		
+	
+	}
+	
+	
+	private List<PersonCastDTO> getPersonCast()
+	{
+		List<Person> entity = query6.getPersonCast();
+		List<PersonCastDTO> dto = new ArrayList<>();
+		for(Person p: entity) {
+			dto.add(model.map(p, PersonCastDTO.class));
+		}
+		return dto;
+		
+		
+	}
+	
+	
+	
 
 }
