@@ -9,7 +9,7 @@ import srl.neotech.entity.Movie;
 
 public interface ActorDepartmentRepository extends JpaRepository<Movie, Integer>{
 	
-	@Query(nativeQuery = true, value = "select DISTINCT person.person_name, department.department_name\n"
+	@Query(nativeQuery = true, value = "select DISTINCT person.person_name personName, department.department_name departmentName\n"
 			+ "from movie\n"
 			+ "join movie_cast on movie.movie_id = movie_cast.movie_id\n"
 			+ "join person on movie_cast.person_id = person.person_id\n"

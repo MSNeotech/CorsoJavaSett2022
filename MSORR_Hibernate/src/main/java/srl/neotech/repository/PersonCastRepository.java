@@ -9,7 +9,7 @@ import srl.neotech.entity.Person;
 
 public interface PersonCastRepository extends JpaRepository<Person, Integer>{
 
-	@Query(value="select  person.person_id, person.person_name, count(movie_cast.movie_id) as numero_film\n"
+	@Query(value="select person.person_id , person.person_name, count(movie_cast.movie_id)\n"
 			+ "FROM person\n"
 			+ "JOIN movie_cast ON person.person_id = movie_cast.person_id\n"
 			+ "GROUP BY person.person_id, person.person_name", nativeQuery= true)

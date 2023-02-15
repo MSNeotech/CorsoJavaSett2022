@@ -65,10 +65,13 @@ public class QueryService {
 			break;
 		case 4: 
 			result.add(getProductionBudget(300000));
+			break;
 		case 5: 
 			result.add(getPersonLanguage("Italiano"));
+			break;
 		case 6:
 			result.add(getPersonCast());
+			break;
 		}
 
 		return result;

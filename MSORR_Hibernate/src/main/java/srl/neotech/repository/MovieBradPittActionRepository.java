@@ -11,7 +11,7 @@ import srl.neotech.entity.MovieBradPittActionEntity;
 
 public interface MovieBradPittActionRepository  extends JpaRepository<Movie, Integer>{
 
-	@Query(nativeQuery = true, value = "SELECT movie.*\n"
+	@Query(nativeQuery = true, value = "SELECT movie.movie_id id, movie.title title \n"
 			+ "FROM movie\n"
 			+ "JOIN movie_cast ON movie.movie_id = movie_cast.movie_id\n"
 			+ "JOIN person ON person.person_id = movie_cast.person_id\n"

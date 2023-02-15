@@ -11,7 +11,7 @@ import srl.neotech.entity.PersonLanguageEntity;
 
 public interface PersonLanguageRepository extends JpaRepository<Person, Integer>{
 	
-	@Query(nativeQuery = true, value = "SELECT person.person_id, person.person_name,movie.title ,language.language_name\n"
+	@Query(nativeQuery = true, value = "SELECT person.person_id id, person.person_name personName,movie.title title ,language.language_name languageName\n"
 			+ "FROM person\n"
 			+ "join movie_crew on person.person_id = movie_crew.person_id\n"
 			+ "join movie on movie_crew.movie_id = movie.movie_id\n"
