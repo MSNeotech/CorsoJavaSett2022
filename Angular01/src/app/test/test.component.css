@@ -1,0 +1,87 @@
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.iconDead{
+  width: 10px;
+  height: 10px;
+  background-color: black;
+}
+.iconLive{
+  width: 10px;
+  height: 10px;
+  background-color:aqua;
+}
+
+.cerchio{
+  width: 10px;
+  height: 10px;
+  background-color: blueviolet;
+}
+.cerchio1{
+  width: 10px;
+  height: 10px;
+  background-color: rgb(0, 81, 255);
+}
+li{
+  margin-bottom: 10x;
+  display: flex;
+  align-items: center;
+}
+li > p{
+margin-bottom: 0;
+}
+.cerchioDead{
+background-color: black;
+
+}
+.cerchioLife{
+background-color: aquamarine;
+
+}
+

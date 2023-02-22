@@ -1,0 +1,79 @@
+<h1>Ciao!!</h1>
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+
+
+<button mat-flat-button color="primary" [disabled]="isDisabled">Primary</button>
+<button mat-raised-button color="warn" (click)="onClick()">Warn</button>
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="img" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      Descrizione
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <!--<input matInput placeholder="Ex. Pizza" (input)="onInput($event)">-->
+      <input matInput placeholder="Ex. pasta" [(ngModel)]="title">
+    </mat-form-field>
+
+    <p>{{title}}</p>
+  </mat-card-actions>
+</mat-card>
+
+<p *ngIf="isVisible"> Sono visibile</p>
+<p *ngIf="!isVisible"> Non sono visibile</p>
+
+<ng-template *ngIf="isVisible; then bloccoThen else bloccoElse"></ng-template>
+
+<ng-template #bloccoThen>
+  <p #bloccoElse>Sono, di nuovo, visibile</p>
+</ng-template>
+
+<ng-template #bloccoElse>
+  <p #bloccoElse>Non sono, di nuovo, visibile</p>
+</ng-template>
+
+<ul>
+  <li *ngFor="let persona of persone">
+    <p class="iconDead" *ngIf="!persona.isDead"></p>
+    <p class="iconLive" *ngIf="persona.isDead"></p>
+    <p>{{persona.nome}} - {{persona.cognome}} - {{persona.eta}}</p>
+
+  </li>
+</ul>
+
+<div [ngSwitch]="number">
+<p *ngSwitchCase="1">Ho stampato 1</p>
+<p *ngSwitchCase="2">Ho stampato 2</p>
+<p *ngSwitchCase="3">Ho stampato 3</p>
+<p *ngSwitchDefault>default</p>
+</div>
+
+<ul>
+  <li *ngFor="let persona of persone">
+    <div class="cerchio" [ngStyle]="{background: persona.isDead ? 'black' : 'red'}"></div>
+  <p>{{persona.nome}} {{persona.cognome}}</p>
+</li>
+</ul>
+
+<ul>
+  <li *ngFor="let persona of persone; index as i">
+    <div class="cerchio1" [ngClass]="{'cerchioLife': persona.isDead, 'cerchioDead': !persona.isDead}">i</div>
+  <p>{{persona.nome}} {{persona.cognome}}</p>
+</li>
+</ul>
