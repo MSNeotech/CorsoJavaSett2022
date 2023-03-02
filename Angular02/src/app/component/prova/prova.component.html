@@ -1,0 +1,59 @@
+<ng-template *ngIf="offline; then bloccoIf else bloccoElse" ></ng-template>
+<ng-template #bloccoIf>
+<p> Sono offline</p>
+</ng-template>
+<ng-template #bloccoElse>
+  <p> Sono online</p>
+  </ng-template>
+
+<div *ngIf="offline">Sono offline</div>
+<div *ngIf="!offline">Sono online</div>
+
+<div *ngFor="let persona of persone">
+
+  <p>{{persona.nome}} {{persona.cognome}}</p>
+</div>
+
+<button mat-button color="primary" (click)="onClick($event)">Primary</button>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <!--<input matInput placeholder="Ex. Pizza" (input)="onInput($event)">-->
+    <form>
+      <input matInput placeholder="Ex. Pizza" name="myInput" [(ngModel)]="title"/>
+    </form>
+  </mat-form-field>
+  <p>{{title}}</p>
+
+    <ul>
+      <li *ngFor="let persona of persone">
+      <div class= "cerchio" [ngStyle]="{'background': persona.colore}"></div>
+      <p>{{persona.nome}}  {{persona.cognome}}</p>
+    </li>
+    </ul>
+
+    <ul>
+      <li *ngFor="let persona of persone; index as i">
+      <div class= "cerchio" [ngClass]="{'cerchioBlack': persona.isBlack, 'cerchioRed': !persona.isBlack}">i</div>
+      <p>{{persona.nome}}  {{persona.cognome}}</p>
+    </li>
+    </ul>
+
+    <div *ngFor="let cane of data">
+      <p [ngStyle]="{color:cane.colore}">{{cane.nome}} {{cane.eta}}</p>
+    </div>
+
+    <button (click)="mandaDatiEvent()">Manda dati</button>
+
+    <p>Ciao bello {{title | uppercase}}</p>
+    <p>{{oggi | date:'h:mm:ss'}}</p>
+    <p>{{number | number: '1.2-4'}}</p>
+    <p>{{number | percent: '1.0-4'}}</p>
+    <p>{{number | currency}}</p>
+    <p>{{number | currency: 'EUR':'symbol'}}</p>
+
+
+
+
+

@@ -1,0 +1,24 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.cerchio{
+  width: 10px;
+  height: 10px;
+}
+
+.cerchioBlack{
+  background-color: black ;
+  color:white;
+}
+
+.cerchioRed{
+  background-color: red;
+  color:orange;
+}

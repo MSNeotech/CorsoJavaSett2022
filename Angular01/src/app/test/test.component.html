@@ -77,3 +77,11 @@
   <p>{{persona.nome}} {{persona.cognome}}</p>
 </li>
 </ul>
+
+<div *ngFor="let persona of data">
+  <p [ngStyle]="{color: persona.color}">{{persona.nome}} {{persona.cognome}}</p>
+</div>
+
+<button (click)="mandaDati()">Manda dati ad app</button>
+
+  <p>Ciao a tutti {{title | lowercase}}</p>

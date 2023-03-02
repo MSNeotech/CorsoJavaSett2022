@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 
 @Component({
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit {
+export class TestComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  @Input()  data: any;
+  @Output() mandaDatiE = new EventEmitter<String>()
+persone: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     let counter = 0
@@ -21,6 +27,12 @@ export class TestComponent implements OnInit {
       }
       counter++
     }, 1000)
+
+    console.log(this.data)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
   }
 
   img = ""
@@ -32,6 +44,7 @@ export class TestComponent implements OnInit {
   isVisible = true
   number = 3
   color = 'red'
+  nome = "ProvaPassaggio"
 
   cane = [
     {
@@ -42,11 +55,7 @@ export class TestComponent implements OnInit {
     }
   ]
 
-  persone = [
-    {nome:"Maria", cognome: "DeFilippo", eta: "200", isDead: true},
-    {nome:"Mario", cognome: "Dario", eta: "156", isDead: false},
-    {nome:"Marco", cognome: "Libro", eta: "500", isDead: true},
-  ]
+
 
   onClick() {
     console.log("Ho cliccato")
@@ -55,5 +64,9 @@ export class TestComponent implements OnInit {
   onInput(event: Event) {
     console.log((<HTMLInputElement>event.target).value)
     this.title = (<HTMLInputElement>event.target).value
+  }
+
+  mandaDati(){
+    this.mandaDatiE.emit(this.nome)
   }
 }
